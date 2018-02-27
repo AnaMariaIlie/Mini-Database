@@ -1,0 +1,34 @@
+
+
+
+
+						     README
+						     
+	Pentru implementarea serială am creat clasa ”Database” care implementează interfața
+”MyDatabase”. Această clasă conține o listă de tabele și un HashMap care conține
+asocierea dintre denumurile tabelelor și poziția lor în baza de date. Tabelul este
+reprezentat într-o clasă separată (”Table”) care conține o listă de coloane.
+La crearea unui tabel apelez constructorul din clasa ”Table” având ca parametri
+numele tabelului, lista cu numele coloanelor și lista cu tipurile coloanelor,
+ultimele două fiind asociate unor indici(pentru a facilita căutarea) prin câte un HashMap.
+	Pentru inserarea datelor în tabel adaug la sfârșitul fiecărei coloane valoarea
+corespunzăroare din vectorul primit ca parametru, ținând cont să nu se insereze
+date ce nu corespund cu tipul coloanei.
+	Pentru a actualiza datele dintr-un tabel (update) pe baza unei condiții date
+verific daca sunt elemente ale coloanei pentru care condiția este adevărată. Dacă
+da, aplez o funcție care înlocuiește linia corespunzătoare elementului găsit. De
+asemenea mă asigur că nu se dorește adăugarea unor date invalide.
+	Pentru funcția de selectare mai întâi caut liniile care verifică condiția dată
+ca parametru și le salvez într-un ArrayList(dacă condiția este vidă, le salvez pe
+toate), apoi pentru fiecare coloană din lista de operații aplic funcția de agregare
+care îi corespunde, verificând doar liniile găsite înainte. Adaug rezultatul într-un
+ArrayList, care la rândul lui va fi adăugat în ArrayList-ul ce trebuie returnat.
+	Pentru a asigura sincronizarea thread-urilor am implementat paradigma ”cititori-
+scriitori” prezentată în cursul 4. În clasa ”Table” am identificat ca operații de
+citire ”select”, iar ca operații de scriere ”insert” și ”update”. Am folosit două
+semafoare , unul pentru excluderea mutuală între procese(”wr”) și celălalt pentru
+accesul cititorilor(”mutexR”). De asemenea, am țin evidența numărului de cititori
+prin variabila ”no”(AtomicInteger – pentru a mă asigura ca se actualizează corect).
+Se pot efectua mai multe operații de ”select” simultan dacă nu se execută nicio
+operatie ”insert” sau ”update”, dar cele două din urmă nu se pot executa dacă se
+execută orice altă operație.
