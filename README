@@ -27,7 +27,7 @@ ArrayList, care la rândul lui va fi adăugat în ArrayList-ul ce trebuie return
 scriitori” prezentată în cursul 4. În clasa ”Table” am identificat ca operații de
 citire ”select”, iar ca operații de scriere ”insert” și ”update”. Am folosit două
 semafoare , unul pentru excluderea mutuală între procese(”wr”) și celălalt pentru
-accesul cititorilor(”mutexR”). De asemenea, am țin evidența numărului de cititori
+accesul cititorilor(”mutexR”). De asemenea, țin evidența numărului de cititori
 prin variabila ”no”(AtomicInteger – pentru a mă asigura ca se actualizează corect).
 Se pot efectua mai multe operații de ”select” simultan dacă nu se execută nicio
 operatie ”insert” sau ”update”, dar cele două din urmă nu se pot executa dacă se
