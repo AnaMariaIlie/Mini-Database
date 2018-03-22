@@ -13,10 +13,10 @@ public class Table {
 
 	/* Denumirea tabelului. */
 	protected String tableName;
-	/* Lista de coloane a tebelului. */
+	/* Lista de coloane a tabelului. */
 	protected ArrayList<ArrayList<Object>> content;
 	/*
-	 * HashMap pentru asocierea denumirilor coloanelor si pozitiile in lista de
+	 * HashMap pentru asocierea denumirilor coloanelor si pozitiilor in lista de
 	 * coloane.
 	 */
 	protected HashMap<String, Integer> hashMapNames = new HashMap<String, Integer>();
