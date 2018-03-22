@@ -24,7 +24,7 @@ toate), apoi pentru fiecare coloană din lista de operații aplic funcția de ag
 care îi corespunde, verificând doar liniile găsite înainte. Adaug rezultatul într-un
 ArrayList, care la rândul lui va fi adăugat în ArrayList-ul ce trebuie returnat.
 	Pentru a asigura sincronizarea thread-urilor am implementat paradigma ”cititori-
-scriitori” prezentată în cursul 4. În clasa ”Table” am identificat ca operații de
+scriitori”. În clasa ”Table” am identificat ca operații de
 citire ”select”, iar ca operații de scriere ”insert” și ”update”. Am folosit două
 semafoare , unul pentru excluderea mutuală între procese(”wr”) și celălalt pentru
 accesul cititorilor(”mutexR”). De asemenea, țin evidența numărului de cititori
